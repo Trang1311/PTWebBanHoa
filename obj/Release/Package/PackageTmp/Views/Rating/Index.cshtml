@@ -1,0 +1,154 @@
+﻿@model IEnumerable<WebBanHoa.Models.KHACHHANG>
+@{
+    ViewBag.Title = "Rating";
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>eliveStore</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    
+</head>
+<body>
+    <section class=" clearfix head">
+        <div class="container-fluir">
+            <div class="row">
+                <div class="col-2">
+                    <a href="@Url.Action("Index","Home")"><img src="../img/e3f79f01b262465d81165e3029cc18ed.png" alt="LOGO"></a>
+                </div>
+                <div class="col-8">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                    @Html.Action("Menu", "Home")
+
+                                </ul>
+                                <form class="navbar-form navbar-right" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Tìm kiếm">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Tìm</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-2">
+                    <a href="../index/login.html">
+                        <img src="../img/icons8-account-40.png" alt="account">&nbsp;
+                        <a href="@Url.Action("GioHang","GioHang")">
+                            <img src="../img/icons8-favorite-cart-64.png" alt="cart" width="50" height="50">
+
+                        </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div>
+        <link href="~/Content/Rating.css" rel="stylesheet" />
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <span class="heading">User Rating</span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <p>4.1 average based on 254 reviews.</p>
+        <hr style="border:3px solid #f1f1f1">
+
+        <div class="row">
+            <div class="side">
+                <div>5 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-5"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>150</div>
+            </div>
+            <div class="side">
+                <div>4 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-4"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>63</div>
+            </div>
+            <div class="side">
+                <div>3 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-3"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>15</div>
+            </div>
+            <div class="side">
+                <div>2 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-2"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>6</div>
+            </div>
+            <div class="side">
+                <div>1 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-1"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>20</div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <hr />
+    </div>
+    <section class="clearfix footer">
+        <div class="container-fluir">
+            <div class="row" style="background-color: darkslateblue;">
+                <div class="col">
+                    <center>
+                        <b style="color: rgb(255, 255, 255);">
+                            Công ty THNH Elive
+                            Văn Phòng: Thủ Dầu Một,Bình Dương, Việt Nam <br>
+                            Tel: 0123456789 |0123456789 <br>
+                            Email: elive@storevn.com <br>
+                        </b>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/popper.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+

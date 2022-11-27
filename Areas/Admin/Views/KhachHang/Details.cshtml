@@ -1,0 +1,44 @@
+﻿@model WebBanHoa.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Chitietsanpham";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<section style="background-color: #eee;">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-4">
+                <div class="card text-black">
+                    <i class="fab fa-apple fa-lg pt-3 pb-1 px-3"></i>
+                    <img src="~/img/kh/@Model.HinhAnh"
+                         class="card-img-top" alt="@Model.HoTenKH" />
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5 class="card-title">@Model.TenDN</h5>
+                            <p class="text-muted mb-4">Số Điện Thoại:@Model.DienThoaiKH</p>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div class="d-flex justify-content-between total font-weight-bold mt-4">
+                            <p> Ngày Sinh: @Html.FormatValue(@Model.NgaySinh, "{0:dd/MM/yyyy}")</p>
+                            <p> Email: @Model.Email</p>
+                            <p> Địa Chỉ: @Model.DiaChiKH</p>
+                          
+                        </div>
+                        <div>
+                            <a href="@Url.Action("Edit","KhachHang", new { id = Model.MaKH })" class="btn btn-warning btn-block btn-lg" role="button">Sửa</a>
+                            <a href="@Url.Action("Delete","KhachHang", new { id = Model.MaKH })" class="btn btn-danger btn-block btn-lg" role="button">Xóa</a>
+
+                        </div>
+                        <div class="text-center">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

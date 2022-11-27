@@ -1,0 +1,49 @@
+﻿@using WebBanHoa.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SANPHAM>
+@{
+    ViewBag.Title = "SPTheoPL";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+    <h2 class="text-center">HOA THEO PHÂN LOẠI</h2>
+    <hr>
+    <div class="row text-center">
+        @foreach (var sp in Model)
+        {
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                <div class="thumbnail">
+                    <img src="~/img/sp/@sp.HinhMinhHoa" alt="@sp.TenSP"
+                         class="img-responsive img-rounded imgbook" width="180" />
+                    <div class="caption">
+                        <h4 style="min-height:70px;">
+                            <a href="@Url.Action("Chitietsanpham","SanPhamHoa",new {id = sp.MaSP })">
+                                @sp.TenSP
+                            </a>
+                        </h4>
+                        <p>
+                            <a href="@Url.Action("ThemGioHang","GioHang", new { ms = sp.MaSP, url = Request.Url.ToString() })" class="btn btn-primary" role="button">
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                                </span> Add to Cart
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- Thêm phân trang vào -->
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("SPTheoPL", new { id = ViewBag.MaPL, page = page }))
+    </div>
+
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>
+

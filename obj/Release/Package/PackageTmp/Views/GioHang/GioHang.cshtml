@@ -1,0 +1,103 @@
+﻿@using WebBanHoa.Models
+@model List<GioHang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout_1.cshtml";
+}
+<style type="text/css">
+    table, th, td {
+        border: 0px solid black;
+    }
+
+    td {
+        padding: 10px 15px;
+    }
+</style>
+    <section class="h-100" style="background-color: #eee;">
+        <div class="container h-100 py-5">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-10">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-normal mb-0 text-black">Giỏ Hàng</h3>
+                        <div>
+                            <p class="mb-0">
+                                <span class="text-muted">Sort by:</span> <a href="#!" class="text-body">
+                                    price <i class="fas fa-angle-down mt-1"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card rounded-3 mb-4">
+                        <div class="card-body p-4">
+                            <table border="0" cellspacing="4" cellpadding="4">
+                                <tr style="background-color:honeydew;font-size:15px;font-weight:bold;text-align:center">
+                                    <td>Mã Sản Phẩm </td>
+                                    <td>Tên Sản Phẩm</td>
+                                    <td>Ảnh Bìa</td>
+                                    <td>Số lượng</td>
+                                    <td>Đơn Giá</td>
+                                    <td>Thành Tiền</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td align="center" >@item.iMaSP<br /></td>
+                                        <td align="center">@item.sTenSP<br /></td>
+                                        <td><img src="~/img/sp/@item.sAnhBia" style="width:100px;" /></td>
+                                        @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { iMaSP = item.iMaSP }))
+                                        {
+                                            <td align="center">
+                                                <input type="number" min="1" name="txtSoLuong" value="@item.iSoLuong" style="background-color:aliceblue" />
+                                            </td>
+                                            <td align="center">@string.Format("{0:#,##0,0}", @item.dDonGia)</td>
+                                            <td align="center">@string.Format("{0:#,##0,0}", @item.dThanhTien)</td>
+                                            <td><a href="@Url.Action("Chitietsanpham","SanPhamHoa", new { id = item.iMaSP})">Chi tiết</a></td>
+                                            <td>@Html.ActionLink("Xóa", "XoaGioHang", new { @iMaSP = item.iMaSP })</td>
+                                            <td>             <input type="submit" value="Cập nhật" />         </td>
+                                        }
+                                    </tr>
+                                }
+                                <tr>
+                                    <td colspan="4" style="text-align:right; color:red;font-weight:bold;padding-right:5px;">
+                                        <h3>Tổng Số Lượng :@string.Format("{0:#,##0}", @ViewBag.TongSoLuong)</h3>
+                                    </td>
+                                    <td colspan="5" style="text-align:right; color:red;font-weight:bold;">
+                                        <h3>Tổng Tiền :@string.Format("{0:#,##0}", @ViewBag.TongTien) VND</h3>
+                                    </td>
+                                </tr>
+                                <tr style="font-weight:bold; color:yellow; text-align:center;">
+                                    <td colspan="9">
+                                        <br />
+                                        <a href="@Url.Action("XoaGioHang","GioHang")" class="btn btn-danger btn-lg" role="button">Xóa Giỏ Hàng</a>
+                                        <br />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                                    <div class="card mb-4">
+                                        <div class="card-body p-4 d-flex flex-row">
+                                            <div class="form-outline flex-fill">
+                                                <input type="text" id="form1" class="form-control form-control-lg" />
+                                                <label class="form-label" for="form1">Mã giảm giá</label>
+                                            </div>
+                                            <button type="button" class="btn btn-outline-warning btn-lg ms-3">Áp dụng</button>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            
+                                            <a href="@Url.Action("DatHang","GioHang")" class="btn btn-warning btn-block btn-lg" role="button">ĐẶT HÀNG</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+            </div>
+        </div>
+    </section>
+}

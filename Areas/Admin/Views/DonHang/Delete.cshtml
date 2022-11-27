@@ -1,0 +1,75 @@
+﻿@model WebBanHoa.Models.DONDATHANG
+@{ ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+<style type="text/css">
+    img {
+        width: 200px;
+        margin-bottom: 20px;
+    }
+
+    h3, h4 {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<h2 style="margin-left:300px"> XÁC NHẬN THÔNG TIN CẦN XÓA</h2>
+<h3 style="margin-left:300px">Bạn quyết định xóa đơn hàng này?</h3>
+<h4 style="margin-left:300px">@Html.Raw(ViewBag.ThongBao)</h4>
+<div style="margin-left:300px">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã HD:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaHD)
+        </dd>
+
+        <dt>
+            Tên Người Nhận:            @Html.Raw(@Model.TenNguoiNhan)
+
+        </dt>
+        <dt>
+            Địa Chỉ Nhận:            @Html.Raw(@Model.DiaChiNhan)
+
+        </dt>
+        <dt>
+            SĐT Nhận:            @Html.Raw(@Model.DienThoaiNhan)
+
+        </dt>
+
+        <dt>
+            Tổng Tiền:            @Html.DisplayFor(model => model.TriGia)
+
+        </dt>
+
+        <dt>
+            Ngày Đặt:          @Html.FormatValue(@Model.NgayDH, "{0:dd/MM/yyyy}")
+
+        </dt>
+        <dt>
+            Ngày Giao:          @Html.FormatValue(@Model.NgayGiaoHang, "{0:dd/MM/yyyy}")
+
+        </dt>
+
+
+        <dt>
+            Đã Thanh Toán:             @Html.DisplayFor(model => model.HTThanhToan)
+
+        </dt>
+
+        <dt>
+            Đã Giao Hàng:           @Html.DisplayFor(model => model.HTGiaoHang)
+
+        </dt>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div style="margin-left:300px" class="form-actions no-color">
+            <input type="submit" value="XÓA" class="btn btn-default" /> |
+            @Html.ActionLink("VỀ TRANG QUẢN LÝ ĐƠN HÀNG", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,20 @@
+﻿@using WebBanHoa.Models
+@{
+    KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+}
+@if (Session["Taikhoan"] == null)
+
+{
+    <a href="~/User/DangNhap?id=1">
+        <img src="/img/icons8-account-40.png" alt="account">&nbsp;
+    </a>
+}
+else
+{
+        <a href="~/Profile/Index">
+            <span class="glyphicon glyphicon-user">
+                Xin Chào:@kh.TenDN
+            </span>
+        </a>
+
+}

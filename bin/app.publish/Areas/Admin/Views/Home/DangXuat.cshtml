@@ -1,0 +1,20 @@
+﻿@using WebBanHoa.Models
+@{
+    ADMIN kh = (ADMIN)Session["TaikhoanAD"];
+}
+@if (Session["TaikhoanAD"] == null)
+
+{
+    <a href="~/Home/DangNhap?id=1">
+        <img src="/img/icons8-account-40.png" alt="account">&nbsp;
+    </a>
+}
+else
+{
+
+    <a href="~/Home/Index">
+        <span class="glyphicon glyphicon-user"></span>
+        @kh.TenDNAdmin
+    </a>
+
+}

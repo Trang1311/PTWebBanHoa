@@ -1,0 +1,56 @@
+﻿@using WebBanHoa.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SANPHAM>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row mt-5">
+        <h2 class="list-product-title">Sản Phẩm Mới</h2>
+        <div class="list-product-subtitle">
+            <p>Danh Sách Sản Phẩm</p>
+        </div>
+        <div class="row text-center">
+            @foreach (var sp in Model)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail">
+                        <img src="~/img/sp/@sp.HinhMinhHoa" alt="@sp.TenSP " ;
+                             class="img-responsive img-rounded imgbook" width="380" />
+                        <div class="caption">
+                            <h4 style="min-height:90px;min-width:90px">
+                                <a href="@Url.Action("Chitietsanpham","SanPhamHoa",new {id = sp.MaSP })">
+                                    @sp.TenSP
+                                    <br />
+                                    <br />
+                                    @Html.FormatValue(sp.DonGia, "{0:#,##0,0}")VNĐ
+                            </h4>
+                            <p>
+                                <a href="@Url.Action("ThemGioHang","GioHang",new { ms = sp.MaSP, url = Request.Url.ToString() })" class="btn btn-primary" role="button">
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                                    </span> Add to Cart
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Thêm phân trang vào -->
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { id = ViewBag.MaSP, page = page }))
+    </div>
+
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>

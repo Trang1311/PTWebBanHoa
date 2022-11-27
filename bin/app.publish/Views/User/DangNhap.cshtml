@@ -1,0 +1,84 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Đăng Nhập</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Views/User/Login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+</head>
+<body>
+    <div>
+        
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col">
+                        <section class="vh-100" style="background-color: #9A616D;">
+                            <div class="container py-5 h-100">
+                                <div class="row d-flex justify-content-center align-items-center h-100">
+                                    <div class="col col-xl-10">
+                                        <div class="card" style="border-radius: 1rem;">
+                                            <div class="row g-0">
+                                                <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                                    <img src="~/img/about-us-img.jpg"
+                                                         alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                                                </div>
+                                                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                                    <div class="card-body p-4 p-lg-5 text-black">
+
+
+
+                                                        <div class="d-flex align-items-center mb-3 pb-1">
+                                                            <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                                                            <span class="h1 fw-bold mb-0"><img src="~/img/icons8-account-40.png" />ELIVESTORE</span>
+                                                        </div>
+
+                                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Đăng nhập tài khoản của bạn</h5>
+                                                        <form action="" method="post" class="box login">
+                                                            <div class="form-outline mb-4">
+                                                                <label>Tên Đăng Nhập :</label>
+                                                                <input type="text" name="TenDN" placeholder="Nhập Tên ĐN" required>
+                                                            </div>
+
+                                                            <div class="form-outline mb-4">
+                                                                <label>Mật Khẩu     : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                                <input type="password" name="MatKhau" placeholder="Nhập mật khẩu" required>
+                                                            </div>
+                                                            <p style="font-style:italic; color:red; margin:0px;">@ViewBag.ThongBao</p>
+                                                            <div class="pt-1 mb-4">
+                                                                <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                                                            </div>
+                                                        </form>
+                                                            <a class="small text-muted" href="#!">Quên mật khẩu?</a>
+                                                            <p class="mb-5 pb-lg-2" style="color: #393f81;">
+                                                                Không có tài khoản? <a href="#!"style="color: #393f81;"> @Html.ActionLink("Đăng ký tại đây", "DangKy", "User")</a>
+                                                            </p>
+                                                            <a href="#!" class="small text-muted">Terms of use.</a>
+                                                            <a href="#!" class="small text-muted">Privacy policy</a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</body>
+</html>

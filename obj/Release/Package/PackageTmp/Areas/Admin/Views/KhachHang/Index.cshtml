@@ -1,0 +1,104 @@
+﻿@using WebBanHoa.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<WebBanHoa.Models.KHACHHANG>
+
+
+@helper Truncate(string s, int length)
+{               if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length)
+    }
+}
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2 style="text-align: center"><b> QUẢN LÝ KHÁCH HÀNG</b></h2>
+
+
+<table style="text-align: center">
+    <tr>
+        <th style="text-align:center;width:150px">
+            Tên KH
+        </th>
+
+        <th style="text-align:center;width:120px">
+            Hình Ảnh
+        </th>
+        <th style="text-align:center;width:150px">
+            Ngày Sinh
+        </th>
+        <th style="text-align:center;width:150px">
+            SĐT
+        </th>
+        <th style="text-align:center;width:250px">
+            Email
+        </th>
+        <th style="text-align:center;width:250px">
+            Địa Chỉ
+        </th>
+
+        <th style="text-align:center;width:80px">
+            Đã Duyệt
+        </th>
+        <th style="text-align:center">
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>
+        @*Sử dụng helper để cắt TenSach lấy 50 ký tự*@
+        @Truncate(item.HoTenKH, 50)
+    </td>
+
+
+    <td>
+        <img src="~/img/kh/@item.HinhAnh" asp-append-version="true" style="width: 80px;" />
+    </td>
+    <td>
+        @*Định dạng hiển thị*@
+        @Html.FormatValue(@item.NgaySinh, "{0:dd/MM/yyyy}")
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DienThoaiKH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DiaChiKH)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.DaDuyet)
+    </td>
+    <td>
+        <a href="@Url.Action("Details", new { id = item.MaKH })" class="btn btn-primary" role="button">Chi tiết</a>
+        <a href="@Url.Action("Delete", new { id = item.MaKH })" class="btn btn-danger" role="button">Xóa</a>
+    </td>
+</tr>
+    }
+</table>
+
+@*Tạo iên kết phần trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 :
+        Model.PageNumber)/@Model.PageCount
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+        </div>
+        <style>
+            .MenuTrang {
+                display: inline;
+                text-align: center;
+            }
+        </style>

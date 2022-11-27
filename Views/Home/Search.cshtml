@@ -1,0 +1,17 @@
+﻿@model IEnumerable<WebBanHoa.Models.SANPHAM>
+@{
+    Layout = null;
+}<form class="navbar-form navbar-right" role="search">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+
+        <div class="form-group">
+            <input type="text" name="searchString" class="form-control" placeholder="Gõ Từ Khóa">
+            <p style="font-style:italic; color:red; margin:0px;">
+                @ViewBag.ThongBao
+            </p>
+        </div>
+        <button type="submit" class="btn btn-default">Tìm Kiếm</button>
+            
+    }
+</form>

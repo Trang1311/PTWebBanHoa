@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>eliveStore</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+</head>
+<body>
+    <section class=" clearfix head">
+        <div class="container-fluir">
+            <div class="row">
+                <div class="col-2">
+                    <a href="@Url.Action("Index","Home")"><img src="/img/e3f79f01b262465d81165e3029cc18ed.png" alt="LOGO"></a>
+                </div>
+                <div class="col-8">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                        <div class="container-fluid">
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                    @Html.Action("Menu", "Home")
+
+                                </ul>
+                                @Html.Action("Search", "Home")
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-2">
+                    @Html.Action("LoginLogout", "User")
+                    <a href="@Url.Action("GioHang","GioHang")">
+                        <img src="/img/icons8-favorite-cart-64.png" alt="cart" width="50" height="50">
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="clearfix aside">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col">
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    <section class="clearfix footer py-4">
+        <div class="container-fluir">
+            <div class="row" style="background-color: darkslateblue;">
+                <div class="col">
+                    <center>
+                        <b style="color: rgb(255, 255, 255);">
+                            Công ty THNH Elive
+                            Văn Phòng: Thủ Dầu Một,Bình Dương, Việt Nam <br>
+                            Tel: 0123456789 |0123456789 <br>
+                            Email: elive@store.vn.com <br>
+                        </b>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/popper.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
